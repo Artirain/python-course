@@ -111,3 +111,30 @@ obj = json.loads(s)                        # строка -> объект
 2. Посчитай количество строк в файле.
 3. Сохрани словарь в JSON и загрузи обратно.
 4. Проверь через `pathlib`, существует ли файл, перед чтением.
+
+??? success "Показать решения"
+
+    ```python
+    # 1
+    with open("test.txt", "w", encoding="utf-8") as f:
+        f.write("раз\nдва\nтри\n")
+    with open("test.txt", encoding="utf-8") as f:
+        print(f.read())
+
+    # 2
+    with open("test.txt", encoding="utf-8") as f:
+        print(len(f.readlines()))
+
+    # 3
+    import json
+    data = {"name": "Аня", "age": 25}
+    with open("u.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False)
+    with open("u.json", encoding="utf-8") as f:
+        print(json.load(f))
+
+    # 4
+    from pathlib import Path
+    if Path("test.txt").exists():
+        print(Path("test.txt").read_text(encoding="utf-8"))
+    ```

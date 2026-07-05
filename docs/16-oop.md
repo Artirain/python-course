@@ -174,3 +174,52 @@ print(acc.get_balance())         # 500
 2. Класс `BankAccount` с методами `deposit` и `withdraw` (не уходить в минус).
 3. Базовый класс `Shape` и наследники `Circle`, `Square` со своим `area()`.
 4. Добавь `__str__`, чтобы объект красиво печатался.
+
+??? success "Показать решения"
+
+    ```python
+    # 1
+    class Rectangle:
+        def __init__(self, width, height):
+            self.width = width
+            self.height = height
+        def area(self):
+            return self.width * self.height
+
+    # 2
+    class BankAccount:
+        def __init__(self):
+            self.balance = 0
+        def deposit(self, amount):
+            self.balance += amount
+        def withdraw(self, amount):
+            if amount > self.balance:
+                print("Недостаточно средств")
+            else:
+                self.balance -= amount
+
+    # 3
+    class Shape:
+        def area(self):
+            return 0
+
+    class Circle(Shape):
+        def __init__(self, r):
+            self.r = r
+        def area(self):
+            return 3.14159 * self.r ** 2
+
+    class Square(Shape):
+        def __init__(self, side):
+            self.side = side
+        def area(self):
+            return self.side ** 2
+
+    # 4
+    class Point:
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
+        def __str__(self):
+            return f"Point({self.x}, {self.y})"
+    ```

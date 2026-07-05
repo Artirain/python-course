@@ -116,3 +116,30 @@ print(f"Твой возраст: {age}")
 1. Раздели два числа, обработав деление на ноль и нечисловой ввод.
 2. Достань элемент списка по индексу, обработав `IndexError`.
 3. Напиши функцию, которая бросает `ValueError` для пустой строки.
+
+??? success "Показать решения"
+
+    ```python
+    # 1
+    try:
+        a = int(input("a: "))
+        b = int(input("b: "))
+        print(a / b)
+    except ZeroDivisionError:
+        print("На ноль нельзя")
+    except ValueError:
+        print("Введите числа")
+
+    # 2
+    lst = [1, 2, 3]
+    try:
+        print(lst[10])
+    except IndexError:
+        print("Нет такого индекса")
+
+    # 3
+    def check(s):
+        if s == "":
+            raise ValueError("Строка пустая")
+        return s
+    ```

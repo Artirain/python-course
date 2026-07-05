@@ -112,3 +112,25 @@ print(int("ff", 16))  # 255 — из hex обратно в int
 2. Проверь, чётное ли введённое число (через `% 2`).
 3. Посчитай площадь круга: `math.pi * r ** 2`.
 4. Разбей 100 рублей: сколько целых десяток и сколько остаток (`divmod`).
+
+??? success "Показать решения"
+
+    ```python
+    # 1
+    price = float(input("Цена: "))
+    qty = int(input("Количество: "))
+    print(round(price * qty, 2))
+
+    # 2
+    n = int(input("Число: "))
+    print("чётное" if n % 2 == 0 else "нечётное")
+
+    # 3
+    import math
+    r = float(input("Радиус: "))
+    print(round(math.pi * r ** 2, 2))
+
+    # 4
+    tens, rest = divmod(100, 10)
+    print(tens, rest)        # 10 0
+    ```

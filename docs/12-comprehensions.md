@@ -109,3 +109,21 @@ result = [complex_func(x) for row in data for x in row if check(x) and other(x)]
 2. Из списка слов оставь только те, что начинаются с гласной.
 3. Словарь `{число: чётное/нечётное}` для чисел 1–5.
 4. Получи уникальные первые буквы из списка имён (set comprehension).
+
+??? success "Показать решения"
+
+    ```python
+    # 1
+    print([x ** 2 for x in range(1, 11)])
+
+    # 2
+    words = ["арбуз", "банан", "яблоко", "груша"]
+    print([w for w in words if w[0] in "аеёиоуыэюя"])
+
+    # 3
+    print({n: ("чёт" if n % 2 == 0 else "нечёт") for n in range(1, 6)})
+
+    # 4
+    names = ["Аня", "Артур", "Боря"]
+    print({name[0] for name in names})
+    ```

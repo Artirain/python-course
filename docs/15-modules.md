@@ -128,3 +128,26 @@ pip install -r requirements.txt  # установить из списка
 1. Импортируй `random` и выведи случайное число от 1 до 100.
 2. Создай модуль `mymath.py` с функцией `square(x)` и вызови её из другого файла.
 3. Добавь в свой модуль блок `if __name__ == "__main__"` с тестовым выводом.
+
+??? success "Показать решения"
+
+    ```python
+    # 1
+    import random
+    print(random.randint(1, 100))
+
+    # 2 — mymath.py
+    def square(x):
+        return x ** 2
+
+    # 2 — main.py (в той же папке)
+    from mymath import square
+    print(square(5))          # 25
+
+    # 3 — mymath.py
+    def square(x):
+        return x ** 2
+
+    if __name__ == "__main__":
+        print(square(4))      # 16 — выполнится только при прямом запуске
+    ```

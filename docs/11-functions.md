@@ -149,3 +149,24 @@ def add(a: int, b: int) -> int:
 2. Функция `greet(name, greeting="Привет")` со значением по умолчанию.
 3. Функция `average(*nums)`, считающая среднее любого числа аргументов.
 4. Отсортируй список слов по длине через `sort(key=lambda ...)`.
+
+??? success "Показать решения"
+
+    ```python
+    # 1
+    def is_even(n):
+        return n % 2 == 0
+
+    # 2
+    def greet(name, greeting="Привет"):
+        return f"{greeting}, {name}!"
+
+    # 3
+    def average(*nums):
+        return sum(nums) / len(nums)
+
+    # 4
+    words = ["груша", "яблоко", "ёж"]
+    words.sort(key=lambda w: len(w))
+    print(words)
+    ```

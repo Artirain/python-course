@@ -138,3 +138,31 @@ print(biggest)        # 9
 2. Считай сумму чисел, пока пользователь не введёт 0 (`while`).
 3. Пройди по списку слов и выведи только те, что длиннее 4 символов.
 4. Найди все чётные числа от 1 до 20.
+
+??? success "Показать решения"
+
+    ```python
+    # 1
+    for i in range(1, 11):
+        print(f"7 x {i} = {7 * i}")
+
+    # 2
+    total = 0
+    while True:
+        n = int(input("Число (0 — стоп): "))
+        if n == 0:
+            break
+        total += n
+    print("Сумма:", total)
+
+    # 3
+    words = ["кот", "собака", "ёж", "попугай"]
+    for w in words:
+        if len(w) > 4:
+            print(w)
+
+    # 4
+    for n in range(1, 21):
+        if n % 2 == 0:
+            print(n)
+    ```
