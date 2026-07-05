@@ -1,0 +1,64 @@
+site_name: Python с нуля
+site_description: Курс по основам Python — типы данных, методы, примеры
+site_author: Astoriy
+docs_dir: docs
+
+theme:
+  name: material
+  language: ru
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Тёмная тема
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Светлая тема
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji
+
+nav:
+  - Главная: index.md
+  - 1. Введение: 01-intro.md
+  - 2. Переменные и типы: 02-variables-types.md
+  - 3. Строки: 03-strings.md
+  - 4. Числа: 04-numbers.md
+  - 5. Списки: 05-lists.md
+  - 6. Кортежи: 06-tuples.md
+  - 7. Словари: 07-dicts.md
+  - 8. Множества: 08-sets.md
+  - 9. Условия: 09-conditions.md
+  - 10. Циклы: 10-loops.md
+  - 11. Функции: 11-functions.md
+  - 12. Comprehensions: 12-comprehensions.md
+  - 13. Исключения: 13-exceptions.md
+  - 14. Файлы: 14-files.md
+  - 15. Модули: 15-modules.md
+  - 16. ООП: 16-oop.md
+  - 17. Полезное из stdlib: 17-stdlib.md
