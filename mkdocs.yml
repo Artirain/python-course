@@ -1,64 +1,104 @@
 site_name: Python с нуля
-site_description: Курс по основам Python — типы данных, методы, примеры
+site_description: Бесплатный курс по основам Python — типы данных, методы, примеры и практика
 site_author: Astoriy
+
 docs_dir: docs
 
 theme:
   name: material
   language: ru
+  icon:
+    logo: material/language-python
+    repo: fontawesome/brands/github
+  favicon: https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/material/templates/assets/images/favicon.png
+  font:
+    text: Inter
+    code: JetBrains Mono
   palette:
-    - scheme: default
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       primary: indigo
-      accent: indigo
+      accent: amber
       toggle:
         icon: material/weather-night
         name: Тёмная тема
-    - scheme: slate
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       primary: indigo
-      accent: indigo
+      accent: amber
       toggle:
         icon: material/weather-sunny
         name: Светлая тема
   features:
     - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
     - navigation.top
     - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
     - content.code.copy
     - content.code.annotate
-    - toc.follow
+    - content.tooltips
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
+  - abbr
   - admonition
   - attr_list
   - md_in_html
+  - footnotes
   - toc:
       permalink: true
+      title: На этой странице
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.details
-  - pymdownx.emoji
+  - pymdownx.keys
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
   - Главная: index.md
-  - 1. Введение: 01-intro.md
-  - 2. Переменные и типы: 02-variables-types.md
-  - 3. Строки: 03-strings.md
-  - 4. Числа: 04-numbers.md
-  - 5. Списки: 05-lists.md
-  - 6. Кортежи: 06-tuples.md
-  - 7. Словари: 07-dicts.md
-  - 8. Множества: 08-sets.md
-  - 9. Условия: 09-conditions.md
-  - 10. Циклы: 10-loops.md
-  - 11. Функции: 11-functions.md
-  - 12. Comprehensions: 12-comprehensions.md
-  - 13. Исключения: 13-exceptions.md
-  - 14. Файлы: 14-files.md
-  - 15. Модули: 15-modules.md
-  - 16. ООП: 16-oop.md
-  - 17. Полезное из stdlib: 17-stdlib.md
+  - Основы:
+      - 1. Введение: 01-intro.md
+      - 2. Переменные и типы: 02-variables-types.md
+      - 3. Строки: 03-strings.md
+      - 4. Числа: 04-numbers.md
+  - Коллекции:
+      - 5. Списки: 05-lists.md
+      - 6. Кортежи: 06-tuples.md
+      - 7. Словари: 07-dicts.md
+      - 8. Множества: 08-sets.md
+  - Логика и функции:
+      - 9. Условия: 09-conditions.md
+      - 10. Циклы: 10-loops.md
+      - 11. Функции: 11-functions.md
+      - 12. Comprehensions: 12-comprehensions.md
+  - Дальше:
+      - 13. Исключения: 13-exceptions.md
+      - 14. Файлы: 14-files.md
+      - 15. Модули: 15-modules.md
+      - 16. ООП: 16-oop.md
+      - 17. Полезное из stdlib: 17-stdlib.md
+  - Практика:
+      - Мини-проекты: projects.md
+  - Справочник:
+      - Шпаргалка: cheatsheet.md
+      - Глоссарий: glossary.md
