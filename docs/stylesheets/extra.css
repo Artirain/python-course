@@ -188,6 +188,46 @@
   .hero .hero-copy h1 { font-size: 2rem; }
   .editor { font-size: .78rem; }
 }
+
+/* Широкие таблицы (3+ колонок) на телефоне — карточками, без бокового скролла */
+@media screen and (max-width: 44.99em) {
+  .md-typeset .md-typeset__table:has(table.responsive-table) { overflow-x: visible; }
+  .md-typeset table.responsive-table,
+  .md-typeset table.responsive-table tbody,
+  .md-typeset table.responsive-table tr,
+  .md-typeset table.responsive-table td { display: block; width: 100%; }
+  .md-typeset table.responsive-table thead { display: none; }
+  .md-typeset table.responsive-table tr {
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: .6rem;
+    margin: 0 0 .7rem;
+    padding: .3rem .1rem;
+    background: var(--md-default-bg-color);
+  }
+  .md-typeset table.responsive-table tr:hover { background: var(--md-default-bg-color); }
+  .md-typeset table.responsive-table td {
+    border: none;
+    padding: .3rem .8rem;
+    display: flex;
+    gap: .8rem;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .md-typeset table.responsive-table td::before {
+    content: attr(data-label);
+    flex: 0 0 8.5rem;
+    font-size: .78em;
+    font-weight: 600;
+    color: var(--md-primary-fg-color);
+    text-transform: uppercase;
+    letter-spacing: .02em;
+  }
+  /* первая ячейка строки (обычно сам метод) — крупнее, как заголовок карточки */
+  .md-typeset table.responsive-table td:first-child {
+    font-weight: 600;
+    padding-top: .5rem;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .editor .cur { animation: none; }
   .md-typeset .grid.cards > ul > li:hover { transform: none; }

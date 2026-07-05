@@ -47,6 +47,9 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/tables.js
+
 markdown_extensions:
   - abbr
   - admonition
