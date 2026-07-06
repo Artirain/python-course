@@ -100,6 +100,16 @@ nav:
       - 15. Модули: 15-modules.md
       - 16. ООП: 16-oop.md
       - 17. Полезное из stdlib: 17-stdlib.md
+  - Лабораторные:
+      - labs/index.md
+      - 'Лаб 6. Словари': labs/lab06.md
+      - 'Лаб 7. Файлы': labs/lab07.md
+      - 'Лаб 8. Функции': labs/lab08.md
+      - 'Лаб 9. Модули и NumPy': labs/lab09.md
+      - 'Лаб 10. ООП': labs/lab10.md
+      - 'Лаб 11. Tkinter: графика': labs/lab11.md
+      - 'Лаб 12. Tkinter: виджеты': labs/lab12.md
+      - 'Лаб 13. Tkinter: меню и вкладки': labs/lab13.md
   - Практика:
       - Мини-проекты: projects.md
   - Справочник:
