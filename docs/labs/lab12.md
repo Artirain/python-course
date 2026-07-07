@@ -212,3 +212,69 @@ Checkbutton(tk, text="B", variable=var, onvalue=1, offvalue=0)  # флажок
 
     tk.mainloop()
     ```
+
+## Задание 5 — таймер обратного отсчёта
+
+> Написать таймер: пользователь вводит количество секунд, по кнопке «Старт»
+> начинается обратный отсчёт с посекундным обновлением на экране. По кнопке
+> «Стоп» отсчёт останавливается. По окончании — сообщение «Время вышло!».
+
+!!! note "Ключевая идея"
+    Таймер — это `Label`, который сам себя обновляет через `after(1000, ...)`
+    (вызов функции раз в 1000 мс = раз в секунду). Никакого `time.sleep()` —
+    он бы «заморозил» окно.
+
+??? success "Показать решение"
+
+    ```python
+    from tkinter import *
+    from tkinter.messagebox import showinfo
+
+    running = False         # флаг: идёт ли отсчёт (для кнопки «Стоп»)
+
+    def tick():
+        global remaining, running
+        if not running:                 # нажали «Стоп» — выходим
+            return
+        # обновляем метку в формате мм:сс
+        label.config(text=f"{remaining // 60:02d}:{remaining % 60:02d}")
+        if remaining <= 0:              # время закончилось
+            running = False
+            showinfo("Таймер", "Время вышло!")
+            return
+        remaining -= 1
+        tk.after(1000, tick)            # повторить через 1 секунду
+
+    def start():
+        global remaining, running
+        if running:                     # защита от повторного запуска
+            return
+        remaining = int(entry.get())    # берём число секунд из поля ввода
+        running = True
+        tick()
+
+    def stop():
+        global running
+        running = False                 # tick() сам остановится
+
+    tk = Tk()
+    tk.title("Таймер")
+    tk.geometry("250x180")
+
+    Label(tk, text="Секунд:").pack(pady=5)
+    entry = Entry(tk, justify="center")
+    entry.insert(0, "10")               # значение по умолчанию
+    entry.pack()
+
+    label = Label(tk, text="00:00", font="Arial 32")   # табло таймера
+    label.pack(pady=10)
+
+    Button(tk, text="Старт", command=start).pack(side=LEFT, padx=20)
+    Button(tk, text="Стоп", command=stop).pack(side=RIGHT, padx=20)
+
+    tk.mainloop()
+    ```
+
+!!! tip "Как сделать секундомер"
+    Наоборот: начни с `remaining = 0` и в `tick()` пиши `remaining += 1` без
+    проверки на конец — получится счёт времени вверх.
