@@ -227,31 +227,31 @@ Checkbutton(tk, text="B", variable=var, onvalue=1, offvalue=0)  # флажок
 ??? success "Показать решение"
 
     ```python
-    from tkinter import *
+    from tkinter import *                    # подключаем tkinter
 
-    def tick():
+    def tick():                              # функция одного «тика» таймера
+        global remaining                     # берём общую переменную-счётчик
+        label.config(text=str(remaining))    # показываем оставшиеся секунды
+        if remaining > 0:                    # если ещё не дошли до нуля
+            remaining -= 1                   # уменьшаем счётчик на 1
+            tk.after(1000, tick)             # повторить эту же функцию через 1 сек
+
+    def start():                             # запуск по кнопке «Старт»
         global remaining
-        label.config(text=str(remaining))   # показываем оставшиеся секунды
-        if remaining > 0:                    # ещё не ноль -> идём дальше
-            remaining -= 1
-            tk.after(1000, tick)             # повторить через 1 секунду
+        remaining = int(entry.get())         # берём число секунд из поля ввода
+        tick()                               # запускаем отсчёт
 
-    def start():
-        global remaining
-        remaining = int(entry.get())         # взять число из поля ввода
-        tick()
+    tk = Tk()                                # создаём окно
+    tk.title("Таймер")                       # заголовок окна
 
-    tk = Tk()
-    tk.title("Таймер")
+    entry = Entry(tk)                        # поле для ввода секунд
+    entry.insert(0, "10")                    # значение по умолчанию — 10
+    entry.pack()                             # размещаем поле в окне
 
-    entry = Entry(tk)
-    entry.insert(0, "10")                    # значение по умолчанию
-    entry.pack()
+    Button(tk, text="Старт", command=start).pack()   # кнопка запуска
 
-    Button(tk, text="Старт", command=start).pack()
+    label = Label(tk, text="0", font="Arial 40")     # табло таймера
+    label.pack()                             # размещаем табло
 
-    label = Label(tk, text="0", font="Arial 40")
-    label.pack()
-
-    tk.mainloop()
+    tk.mainloop()                            # запускаем окно
     ```
